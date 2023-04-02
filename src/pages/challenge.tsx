@@ -4,7 +4,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import { Box, Grid, Button, TextField, Stack, Typography } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import Card from "../components/CardCharacter";
 
 import { Item } from "../interfaces/character";
@@ -35,6 +35,7 @@ function Challenge() {
 
   const [countPages, setCountPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [clickedCharacter, setClickedCharacter] = useState<Item>();
 
   /**
    * Functions to handle modal
@@ -110,6 +111,7 @@ function Challenge() {
   }
 
   function clickCard(item: Item) {
+    setClickedCharacter(item);
     setOpen(!open);
     setCaracterProfile(item);
   }
@@ -137,7 +139,9 @@ function Challenge() {
       </Box>
 
       <ModalCharacter
-        caracterProfile={caracterProfile}
+        characterProfile={caracterProfile}
+        handleFavoriteCharacter={handleFavoriteCharacter}
+        item={clickedCharacter}
         open={open}
         handleClose={handleClose}
       />
@@ -237,8 +241,8 @@ function Challenge() {
             </Grid>
           )}
           {favoriteCharacters.length === 0 && (
-            <Box>
-              <Typography> You dont have any favorite character </Typography>
+            <Box display="flex" justifyContent="center" mb={2}>
+              <Typography> <FontAwesomeIcon icon={faHeartCrack} /> You dont have any favorite character <FontAwesomeIcon icon={faHeartCrack} /> </Typography>
             </Box>
           )}
         </div>
