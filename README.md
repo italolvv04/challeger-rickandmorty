@@ -3,9 +3,6 @@
 
 <img src="https://media4.giphy.com/media/YmuBikckdIDXC5jPFf/giphy.gif" width="500" />
 
-
-<iframe src="https://giphy.com/embed/YmuBikckdIDXC5jPFf" width="480" height="264" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/rickandmorty-season-4-episode-7-rick-and-morty-YmuBikckdIDXC5jPFf">via GIPHY</a></p>
-
  This project was created to fulfill a proposed challenge. the application was built based on the Rick and Morty API, which lists all the characters from each episode.
  
  **The challenge consists of:**
