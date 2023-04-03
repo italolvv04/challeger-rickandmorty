@@ -214,35 +214,38 @@ function Challenge() {
         <div>
           {favoriteCharacters.length > 0 && (
             <Grid container spacing={2}>
-              {favoriteCharacters
-                  .map((item: Item) => {
-                    return (
-                      <Grid
-                        xl={3}
-                        md={4}
-                        xs={12}
-                        sm={6}
-                        lg={3}
-                        sx={{ display: "flex", justifyContent: "center" }}
-                        item
-                        container={true}
-                        direction="row"
-                        alignItems="center"
-                        key={item.id}
-                      >
-                        <Card
-                          handleFavoriteCharacter={handleFavoriteCharacter}
-                          clickCard={clickCard}
-                          item={item}
-                        />
-                      </Grid>
-                    );
-                  })}
+              {favoriteCharacters.map((item: Item) => {
+                return (
+                  <Grid
+                    xl={3}
+                    md={4}
+                    xs={12}
+                    sm={6}
+                    lg={3}
+                    sx={{ display: "flex", justifyContent: "center" }}
+                    item
+                    container={true}
+                    direction="row"
+                    alignItems="center"
+                    key={item.id}
+                  >
+                    <Card
+                      handleFavoriteCharacter={handleFavoriteCharacter}
+                      clickCard={clickCard}
+                      item={item}
+                    />
+                  </Grid>
+                );
+              })}
             </Grid>
           )}
           {favoriteCharacters.length === 0 && (
             <Box display="flex" justifyContent="center" mb={2}>
-              <Typography> <FontAwesomeIcon icon={faHeartCrack} /> You dont have any favorite character <FontAwesomeIcon icon={faHeartCrack} /> </Typography>
+              <Typography>
+                {" "}
+                <FontAwesomeIcon icon={faHeartCrack} /> You dont have any
+                favorite character <FontAwesomeIcon icon={faHeartCrack} />{" "}
+              </Typography>
             </Box>
           )}
         </div>
@@ -251,46 +254,48 @@ function Challenge() {
       {!showFav && (
         <Grid container spacing={2}>
           {newCharacter.map((item: Item) => {
-              return (
-                <Grid
-                  xl={3}
-                  md={4}
-                  xs={12}
-                  sm={6}
-                  lg={3}
-                  sx={{ display: "flex", justifyContent: "center" }}
-                  item
-                  container={true}
-                  direction="row"
-                  alignItems="center"
-                  key={item.id}
-                >
-                  <Card
-                    handleFavoriteCharacter={handleFavoriteCharacter}
-                    clickCard={clickCard}
-                    item={item}
-                  />
-                </Grid>
-              );
-            })}
+            return (
+              <Grid
+                xl={3}
+                md={4}
+                xs={12}
+                sm={6}
+                lg={3}
+                sx={{ display: "flex", justifyContent: "center" }}
+                item
+                container={true}
+                direction="row"
+                alignItems="center"
+                key={item.id}
+              >
+                <Card
+                  handleFavoriteCharacter={handleFavoriteCharacter}
+                  clickCard={clickCard}
+                  item={item}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
       )}
-      <Box
-        display="flex"
-        sx={{
-          justifyContent: { xs: "center", md: "center", lg: "flex-end" },
-          pr: { xs: 0, xl: 6 },
-        }}
-      >
-        <Stack display="flex" height={50} p={1}>
-          <Pagination
-            onChange={(event, page) => {
-              setCurrentPage(page);
-            }}
-            count={countPages}
-          />
-        </Stack>
-      </Box>
+      { !showFav && (
+        <Box
+          display="flex"
+          sx={{
+            justifyContent: { xs: "center", md: "center", lg: "flex-end" },
+            pr: { xs: 0, xl: 6 },
+          }}
+        >
+          <Stack display="flex" height={50} p={1}>
+            <Pagination
+              onChange={(event, page) => {
+                setCurrentPage(page);
+              }}
+              count={countPages}
+            />
+          </Stack>
+        </Box>
+      )}
     </Box>
   );
 }
